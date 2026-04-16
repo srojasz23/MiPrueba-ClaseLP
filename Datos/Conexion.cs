@@ -12,8 +12,8 @@ namespace Datos.Data.Sql
         private static readonly object _lock     = new object();
 
         private readonly string connectionString = 
-            "Server=.;Database=SistemaEmpleados;Integrated Security=True;";
-        //  "Server=localhost; Database=SistemaEmpleados; User Id= 08SJLZ1P1103I01; Password=123456; TrustServerCertificate=True;";
+            //Server=localhost;Database=SistemaEmpleados;Integrated Security=True;";
+            "Server=localhost;Database=SistemaEmpleados;User Id= stefani; Password=123456; TrustServerCertificate=True;";
 
         //aca vamos agregar un constructor privado para que nadie pueda hacer nueva conexion 
 

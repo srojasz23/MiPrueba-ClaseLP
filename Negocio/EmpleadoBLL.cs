@@ -1,0 +1,33 @@
+﻿
+
+using Datos;
+using Entidad;
+
+namespace Negocio
+{
+    public class EmpleadoBLL
+    {
+        private readonly EmpleadoDat _dal = new EmpleadoDat();
+
+        public List<Empleado> ObtenerTodos() => _dal.Listar();
+
+        public bool Registrar(Empleado emp)
+        {
+            // Validaciones de negocio
+            if (string.IsNullOrWhiteSpace(emp.Nombres))
+                throw new System.Exception("El nombre es obligatorio.");
+            if (emp.DNI.Length != 8)
+                throw new System.Exception("El DNI debe tener 8 dígitos.");
+            if (emp.Salario <= 0)
+                throw new System.Exception("El salario debe ser mayor a 0.");
+
+            return _dal.Insertar(emp);
+        }
+
+        public bool Modificar(Empleado emp) => _dal.Actualizar(emp);
+
+        public bool Eliminar(int id) => _dal.Eliminar(id);
+
+
+    }
+}
