@@ -9,7 +9,7 @@ namespace Entidad
     public class Area
     {
         public int IdArea { get; set; }
-        public string Nombre { get; set; }
+        public string Nombre { get; set; } = string.Empty;
 
     }
 }

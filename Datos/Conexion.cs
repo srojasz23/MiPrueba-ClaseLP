@@ -11,9 +11,9 @@ namespace Datos.Data.Sql
         private static Conexion _instancia; // aca se esta aplicando Singleton 
         private static readonly object _lock     = new object();
 
-        private readonly string connectionString = 
-            //Server=localhost;Database=SistemaEmpleados;Integrated Security=True;";
-            "Server=localhost;Database=SistemaEmpleados;User Id= stefani; Password=123456; TrustServerCertificate=True;";
+        private readonly string connectionString =
+            //"Server=localhost;Database=SistemaEmpleados;Integrated Security=True;TrustServerCertificate=True;";
+            "Server=localhost;Database=SistemaEmpleados;User Id=sa;Password=12345;TrustServerCertificate=True;";
 
         //aca vamos agregar un constructor privado para que nadie pueda hacer nueva conexion 
 
