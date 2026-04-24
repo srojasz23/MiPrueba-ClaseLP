@@ -29,15 +29,23 @@ namespace Negocio
         public bool Eliminar(int id) => _dal.Eliminar(id);
 
         // para registrar el contrato del empleado 
-        public bool RegistrarConContrato(Empleado emp, DateTime inicio, DateTime? fin, string tipo)
+        public bool RegistrarConContrato(Empleado emp, DateTime inicio, DateTime? fin, string tipo, string rol)
         {
+            
+            
+            if(rol !="Admin")
+                throw new System.Exception("Solo Administradores pueden registra contrato");
+
+            return _dal.InsertarConContrato(emp, inicio, fin, tipo);
+
+            /* Solo registrar al empleado con contrato, sin validacion de rol.
             if (string.IsNullOrWhiteSpace(tipo))
                 throw new Exception("Tipo de contrato Obligatorio");
 
             return _dal.InsertarConContrato(emp, inicio, fin, tipo);
-            
-        
-        
+            */
+
+
         }
 
 

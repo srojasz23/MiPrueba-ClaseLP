@@ -15,7 +15,7 @@ namespace Datos
         {
             using (var cn = Conexion.Instancia.ObtenerConexion())
             {
-                string sql = "SELECT * FROM Usuario WHERE Usuario=@u and PasswordHash=@p";
+                string sql = "SELECT * FROM Usuarios WHERE Usuario=@u and PasswordHash=@p";
 
                 using (var cmd = new SqlCommand(sql, cn))
                 {

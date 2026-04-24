@@ -9,9 +9,13 @@ namespace Presentacion
         private readonly EmpleadoBLL _bll = new EmpleadoBLL();
 
 
-        public frmPrincipal()
+        private string _rol;
+        public frmPrincipal(string rol)
         {
             InitializeComponent();
+            _rol = rol;
+
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -21,6 +25,15 @@ namespace Presentacion
 
             CargarTipoContrato();
 
+
+            //aca aplico el tema de controles segun el rol del usuario
+
+
+            if (_rol == "Supervisor")
+            {
+                btnGuardar.Enabled = false;
+                // otros controles que quieras deshabilitar para el operador
+            }
         }
 
 
@@ -75,7 +88,7 @@ namespace Presentacion
                 string tipo = cboTipoContrato.SelectedItem.ToString();
 
 
-                if (_bll.RegistrarConContrato(emp, inicio, fin, tipo))
+                if (_bll.RegistrarConContrato(emp, inicio, fin, tipo, _rol))
                 {
                     MessageBox.Show("Empleado y contrato registrado",
                         "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
