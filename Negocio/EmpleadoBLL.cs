@@ -34,7 +34,7 @@ namespace Negocio
             if (string.IsNullOrWhiteSpace(tipo))
                 throw new Exception("Tipo de contrato Obligatorio");
 
-            return _dal.InsertarContrato(emp, inicio, fin, tipo);
+            return _dal.InsertarConContrato(emp, inicio, fin, tipo);
             
         
         

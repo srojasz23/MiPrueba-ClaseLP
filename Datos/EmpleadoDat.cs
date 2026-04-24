@@ -243,7 +243,7 @@ namespace Datos
         }
 
 
-        public bool InsertarContrato(Empleado emp, DateTime fechaInicio, DateTime? fechaFin, string tipo)
+        public bool InsertarConContrato(Empleado emp, DateTime fechaInicio, DateTime? fechaFin, string tipo)
         {
             using (var cn = Conexion.Instancia.ObtenerConexion())
             {

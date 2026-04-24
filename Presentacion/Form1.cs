@@ -75,7 +75,24 @@ namespace Presentacion
                 string tipo = cboTipoContrato.SelectedItem.ToString();
 
 
+                if (_bll.RegistrarConContrato(emp, inicio, fin, tipo))
+                {
+                    MessageBox.Show("Empleado y contrato registrado",
+                        "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+                    CargarEmpleados();
+                    LimpiarCampos();
+
+                }
+
+                else
+                {
+                    MessageBox.Show("Error al registrar empleado y contrato",
+                        "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                
+                }
+
+                /*
                 if (_bll.Registrar(emp))
                 {
                     MessageBox.Show("Empleado registrado.", "Éxito",
@@ -88,12 +105,12 @@ namespace Presentacion
                     MessageBox.Show("Error al registrar el empleado.", "Error",
                         MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-                }
+                }*/
 
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Error",
+                MessageBox.Show($"Error:{ex.Message}", "Error",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
