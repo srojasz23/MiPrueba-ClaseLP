@@ -47,12 +47,16 @@
             label6 = new Label();
             label7 = new Label();
             txtPrueba = new TextBox();
+            label8 = new Label();
+            dtpFin = new DateTimePicker();
+            label9 = new Label();
+            cboTipoContrato = new ComboBox();
             ((System.ComponentModel.ISupportInitialize)dvgEmpleados).BeginInit();
             SuspendLayout();
             // 
             // btnGuardar
             // 
-            btnGuardar.Location = new Point(223, 343);
+            btnGuardar.Location = new Point(223, 358);
             btnGuardar.Margin = new Padding(2, 1, 2, 1);
             btnGuardar.Name = "btnGuardar";
             btnGuardar.Size = new Size(81, 22);
@@ -118,7 +122,7 @@
             dtpFecha.Margin = new Padding(2, 1, 2, 1);
             dtpFecha.MaxDate = new DateTime(2054, 12, 31, 0, 0, 0, 0);
             dtpFecha.Name = "dtpFecha";
-            dtpFecha.Size = new Size(277, 23);
+            dtpFecha.Size = new Size(200, 23);
             dtpFecha.TabIndex = 7;
             // 
             // cboArea
@@ -207,11 +211,49 @@
             txtPrueba.Size = new Size(100, 23);
             txtPrueba.TabIndex = 16;
             // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Location = new Point(259, 298);
+            label8.Name = "label8";
+            label8.Size = new Size(59, 15);
+            label8.TabIndex = 17;
+            label8.Text = "Fecha FIN";
+            // 
+            // dtpFin
+            // 
+            dtpFin.Format = DateTimePickerFormat.Short;
+            dtpFin.Location = new Point(360, 291);
+            dtpFin.Name = "dtpFin";
+            dtpFin.Size = new Size(200, 23);
+            dtpFin.TabIndex = 18;
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Location = new Point(259, 331);
+            label9.Name = "label9";
+            label9.Size = new Size(97, 15);
+            label9.TabIndex = 19;
+            label9.Text = "Tipo de Contrato";
+            // 
+            // cboTipoContrato
+            // 
+            cboTipoContrato.FormattingEnabled = true;
+            cboTipoContrato.Location = new Point(360, 328);
+            cboTipoContrato.Name = "cboTipoContrato";
+            cboTipoContrato.Size = new Size(121, 23);
+            cboTipoContrato.TabIndex = 20;
+            // 
             // frmPrincipal
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(820, 390);
+            Controls.Add(cboTipoContrato);
+            Controls.Add(label9);
+            Controls.Add(dtpFin);
+            Controls.Add(label8);
             Controls.Add(txtPrueba);
             Controls.Add(label7);
             Controls.Add(label6);
@@ -258,5 +300,9 @@
         private Label label6;
         private Label label7;
         private TextBox txtPrueba;
+        private Label label8;
+        private DateTimePicker dtpFin;
+        private Label label9;
+        private ComboBox cboTipoContrato;
     }
 }

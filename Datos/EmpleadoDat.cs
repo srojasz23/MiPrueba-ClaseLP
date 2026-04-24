@@ -243,6 +243,72 @@ namespace Datos
         }
 
 
+        public bool InsertarContrato(Empleado emp, DateTime fechaInicio, DateTime? fechaFin, string tipo)
+        {
+            using (var cn = Conexion.Instancia.ObtenerConexion())
+            {
+                cn.Open();
+                using (var tx = cn.BeginTransaction()) // aca estamos trabajando Transaccion
+                {
+                    try
+                    {
+                        // insertar empleado 
+                        string sqlEmp = @"INSERT INTO Empleados
+                            (Nombres, Apellidos, DNI, Correo, Salario, FechaIngreso, IdArea)
+                            VALUES (@Nombres, @Apellidos, @DNI, @Correo, @Salario, @FechaIngreso, @IdArea);
+                            SELECT SCOPE_IDENTITY()";
+
+                        int idEmpleado;
+
+                        using (var cmd = new SqlCommand(sqlEmp, cn, tx))
+                        {
+                            cmd.Parameters.AddWithValue("@Nombres", emp.Nombres);
+                            cmd.Parameters.AddWithValue("@Apellidos", emp.Apellidos);
+                            cmd.Parameters.AddWithValue("@DNI", emp.DNI);
+                            cmd.Parameters.AddWithValue("@Correo", emp.Correo);
+                            cmd.Parameters.AddWithValue("@Salario", emp.Salario);
+                            cmd.Parameters.AddWithValue("@FechaIngreso", emp.FechaIngreso);
+                            cmd.Parameters.AddWithValue("@IdArea", emp.IdArea);
+
+                            idEmpleado = Convert.ToInt32(cmd.ExecuteScalar());
+
+
+
+                        }
+
+                        //insertar contrato 
+
+                        string sqlCon = @"INSERT INTO Contratos 
+                        (IdEmpleado, FechaInicio, FechaFin, TipoContrato)
+                        VALUES (@IdEmpleado, @FechaInicio, @FechaFin, @TipoContrato)";
+
+                        using (var cmd = new SqlCommand(sqlCon, cn, tx))
+                        {
+                            cmd.Parameters.AddWithValue("@IdEmpleado", idEmpleado);
+                            cmd.Parameters.AddWithValue("@FechaInicio", fechaInicio);
+                            cmd.Parameters.AddWithValue("@FechaFin", fechaFin);
+                            cmd.Parameters.AddWithValue("@TipoContrato", tipo);
+
+                            cmd.ExecuteNonQuery();
+                        }
+
+                        tx.Commit();
+                        return true;
+
+
+                    }
+
+                    catch 
+                    {
+                        tx.Rollback(); // cuando hay un error va a deshacer 
+                        return false;
+                    }
+                }
+            
+            }
+        
+        } 
+
 
     }
 

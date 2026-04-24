@@ -19,6 +19,8 @@ namespace Presentacion
             CargarEmpleados();
             CargarAreas();
 
+            CargarTipoContrato();
+
         }
 
 
@@ -68,6 +70,12 @@ namespace Presentacion
                     IdArea = (int)cboArea.SelectedValue!
                 };
 
+                DateTime inicio = dtpFecha.Value;
+                DateTime? fin = dtpFin.Value;
+                string tipo = cboTipoContrato.SelectedItem.ToString();
+
+
+
                 if (_bll.Registrar(emp))
                 {
                     MessageBox.Show("Empleado registrado.", "Éxito",
@@ -100,6 +108,21 @@ namespace Presentacion
             txtSalario.Clear();
             dtpFecha.Value = DateTime.Now;
             cboArea.SelectedIndex = -1;
+
+        }
+
+
+        private void CargarTipoContrato()
+        {
+            cboTipoContrato.Items.Clear();
+
+            cboTipoContrato.Items.Add("Indefinido");
+            cboTipoContrato.Items.Add("Temporal");
+            cboTipoContrato.Items.Add("Practicante");
+
+            cboTipoContrato.SelectedIndex = 0;
+
+
 
         }
     }

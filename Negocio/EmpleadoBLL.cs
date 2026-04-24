@@ -28,6 +28,21 @@ namespace Negocio
 
         public bool Eliminar(int id) => _dal.Eliminar(id);
 
+        // para registrar el contrato del empleado 
+        public bool RegistrarConContrato(Empleado emp, DateTime inicio, DateTime? fin, string tipo)
+        {
+            if (string.IsNullOrWhiteSpace(tipo))
+                throw new Exception("Tipo de contrato Obligatorio");
+
+            return _dal.InsertarContrato(emp, inicio, fin, tipo);
+            
+        
+        
+        }
+
+
+
+
 
     }
 }
