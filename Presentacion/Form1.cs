@@ -39,8 +39,8 @@ namespace Presentacion
 
         private void CargarAreas()
         {
-             var bll = new AreaBLL();
-              var lista = bll.ObtenerAreas();
+            var bll = new AreaBLL();
+            var lista = bll.ObtenerAreas();
 
             cboArea.DataSource = lista;
             cboArea.DisplayMember = "Nombre";
@@ -102,7 +102,7 @@ namespace Presentacion
                 {
                     MessageBox.Show("Error al registrar empleado y contrato",
                         "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                
+
                 }
 
                 /*
@@ -154,6 +154,11 @@ namespace Presentacion
 
 
 
+        }
+
+        private void btnMonitorAsync_Click(object sender, EventArgs e)
+        {
+            new frmMonitorAsync().Show();
         }
     }
 }

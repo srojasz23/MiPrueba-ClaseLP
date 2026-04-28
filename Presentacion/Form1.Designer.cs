@@ -51,6 +51,7 @@
             dtpFin = new DateTimePicker();
             label9 = new Label();
             cboTipoContrato = new ComboBox();
+            btnMonitorAsync = new Button();
             ((System.ComponentModel.ISupportInitialize)dvgEmpleados).BeginInit();
             SuspendLayout();
             // 
@@ -245,11 +246,22 @@
             cboTipoContrato.Size = new Size(121, 23);
             cboTipoContrato.TabIndex = 20;
             // 
+            // btnMonitorAsync
+            // 
+            btnMonitorAsync.Location = new Point(643, 184);
+            btnMonitorAsync.Name = "btnMonitorAsync";
+            btnMonitorAsync.Size = new Size(141, 23);
+            btnMonitorAsync.TabIndex = 21;
+            btnMonitorAsync.Text = "Monitor Async";
+            btnMonitorAsync.UseVisualStyleBackColor = true;
+            btnMonitorAsync.Click += btnMonitorAsync_Click;
+            // 
             // frmPrincipal
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(820, 390);
+            Controls.Add(btnMonitorAsync);
             Controls.Add(cboTipoContrato);
             Controls.Add(label9);
             Controls.Add(dtpFin);
@@ -304,5 +316,6 @@
         private DateTimePicker dtpFin;
         private Label label9;
         private ComboBox cboTipoContrato;
+        private Button btnMonitorAsync;
     }
 }

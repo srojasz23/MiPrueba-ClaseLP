@@ -63,13 +63,14 @@ namespace Datos
             INNER JOIN Areas a ON e.IdArea = a.IdArea";
 
 
-
+               
                 using (var cmd = new SqlCommand(sql, cn))
 
                 {
 
                     cn.Open();
-
+                    Console.WriteLine("sql");
+                    Console.WriteLine(cmd.CommandText);
                     var reader = cmd.ExecuteReader();
 
 
