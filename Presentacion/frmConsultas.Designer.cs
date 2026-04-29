@@ -28,30 +28,57 @@
         /// </summary>
         private void InitializeComponent()
         {
-            comboBox1 = new ComboBox();
+            cboOpciones = new ComboBox();
+            btnEjecutar = new Button();
+            dvgDatos = new DataGridView();
+            ((System.ComponentModel.ISupportInitialize)dvgDatos).BeginInit();
             SuspendLayout();
             // 
-            // comboBox1
+            // cboOpciones
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(30, 23);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(216, 23);
-            comboBox1.TabIndex = 0;
+            cboOpciones.FormattingEnabled = true;
+            cboOpciones.Location = new Point(30, 23);
+            cboOpciones.Name = "cboOpciones";
+            cboOpciones.Size = new Size(216, 23);
+            cboOpciones.TabIndex = 0;
+            // 
+            // btnEjecutar
+            // 
+            btnEjecutar.Location = new Point(291, 23);
+            btnEjecutar.Name = "btnEjecutar";
+            btnEjecutar.Size = new Size(124, 23);
+            btnEjecutar.TabIndex = 1;
+            btnEjecutar.Text = "Ejecutar";
+            btnEjecutar.UseVisualStyleBackColor = true;
+            btnEjecutar.Click += btnEjecutar_Click;
+            // 
+            // dvgDatos
+            // 
+            dvgDatos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dvgDatos.Location = new Point(30, 74);
+            dvgDatos.Name = "dvgDatos";
+            dvgDatos.Size = new Size(621, 150);
+            dvgDatos.TabIndex = 2;
             // 
             // frmConsultas
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
-            Controls.Add(comboBox1);
+            ClientSize = new Size(696, 247);
+            Controls.Add(dvgDatos);
+            Controls.Add(btnEjecutar);
+            Controls.Add(cboOpciones);
             Name = "frmConsultas";
             Text = "frmConsultas";
+            Load += frmConsultas_Load;
+            ((System.ComponentModel.ISupportInitialize)dvgDatos).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
-        private ComboBox comboBox1;
+        private ComboBox cboOpciones;
+        private Button btnEjecutar;
+        private DataGridView dvgDatos;
     }
 }

@@ -160,5 +160,10 @@ namespace Presentacion
         {
             new frmMonitorAsync().Show();
         }
+
+        private void btnConsultas_Click(object sender, EventArgs e)
+        {
+            new frmConsultas().Show();
+        }
     }
 }

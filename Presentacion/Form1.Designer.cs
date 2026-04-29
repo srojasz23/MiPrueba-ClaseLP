@@ -52,6 +52,7 @@
             label9 = new Label();
             cboTipoContrato = new ComboBox();
             btnMonitorAsync = new Button();
+            btnConsultas = new Button();
             ((System.ComponentModel.ISupportInitialize)dvgEmpleados).BeginInit();
             SuspendLayout();
             // 
@@ -256,11 +257,22 @@
             btnMonitorAsync.UseVisualStyleBackColor = true;
             btnMonitorAsync.Click += btnMonitorAsync_Click;
             // 
+            // btnConsultas
+            // 
+            btnConsultas.Location = new Point(645, 229);
+            btnConsultas.Name = "btnConsultas";
+            btnConsultas.Size = new Size(139, 23);
+            btnConsultas.TabIndex = 22;
+            btnConsultas.Text = "Consultas LINQ";
+            btnConsultas.UseVisualStyleBackColor = true;
+            btnConsultas.Click += btnConsultas_Click;
+            // 
             // frmPrincipal
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(820, 390);
+            Controls.Add(btnConsultas);
             Controls.Add(btnMonitorAsync);
             Controls.Add(cboTipoContrato);
             Controls.Add(label9);
@@ -317,5 +329,6 @@
         private Label label9;
         private ComboBox cboTipoContrato;
         private Button btnMonitorAsync;
+        private Button btnConsultas;
     }
 }
