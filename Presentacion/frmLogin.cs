@@ -34,13 +34,18 @@ namespace Presentacion
 
             }
 
-            catch (Exception ex) 
-            
+            catch (Exception ex)
+
             {
                 MessageBox.Show(ex.Message,
                     "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            
+
             }
+        }
+
+        private void frmLogin_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

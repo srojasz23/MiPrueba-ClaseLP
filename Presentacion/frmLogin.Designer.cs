@@ -90,6 +90,7 @@
             Controls.Add(label1);
             Name = "frmLogin";
             Text = "frmLogin";
+            Load += frmLogin_Load;
             ResumeLayout(false);
             PerformLayout();
         }

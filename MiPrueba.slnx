@@ -3,4 +3,5 @@
   <Project Path="Entidad/Entidad.csproj" />
   <Project Path="Negocio/Negocio.csproj" />
   <Project Path="Presentacion/Presentacion.csproj" />
+  <Project Path="Setup/Setup.vdproj" Type="Installer" />
 </Solution>
