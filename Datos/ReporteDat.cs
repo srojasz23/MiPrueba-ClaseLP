@@ -27,11 +27,11 @@ namespace Datos
             {
                 lista.Add(new ReporteEmpleado
                 {
-                    Areas = dr["Areas"].ToString(),
+                    Areas = dr["Area"].ToString(),
                     TotalEmpleados = Convert.ToInt32(dr["TotalEmpleados"]),
                     SalarioPromedio = Convert.ToDouble(dr["SalarioPromedio"]),
                     SalarioMaximo = Convert.ToDouble(dr["SalarioMaximo"]),
-                    SalarMinimo = Convert.ToDouble(dr["SalarMinimo"])
+                    SalarioMinimo = Convert.ToDouble(dr["SalarioMinimo"])
                 });
             }
 

@@ -12,7 +12,9 @@ namespace Entidad
                 public int TotalEmpleados { get; set; }
                 public Double SalarioPromedio { get; set; }
                 public Double SalarioMaximo { get; set; }
-                public Double SalarMinimo { get; set; }
+
+        
+                public Double SalarioMinimo { get; set; }
 
 
 
