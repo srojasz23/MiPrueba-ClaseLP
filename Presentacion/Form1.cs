@@ -10,10 +10,12 @@ namespace Presentacion
 
 
         private string _rol;
-        public frmPrincipal(string rol)
+        private string _usuario;
+        public frmPrincipal(string usuario, string rol)
         {
             InitializeComponent();
             _rol = rol;
+            _usuario = usuario;
 
 
         }
@@ -164,6 +166,11 @@ namespace Presentacion
         private void btnConsultas_Click(object sender, EventArgs e)
         {
             new frmConsultas().Show();
+        }
+
+        private void btnReportes_Click(object sender, EventArgs e)
+        {
+            new frmReportes(_usuario, _rol).Show();
         }
     }
 }

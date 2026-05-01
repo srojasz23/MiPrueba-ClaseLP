@@ -28,7 +28,9 @@ namespace Presentacion
                 MessageBox.Show($"Bienvenido {user.NombreUsuario}");
 
                 this.Hide();
-                new frmPrincipal(user.Rol).Show();
+
+                // este es el cambio 
+                new frmPrincipal(user.NombreUsuario, user.Rol).Show();
 
             }
 

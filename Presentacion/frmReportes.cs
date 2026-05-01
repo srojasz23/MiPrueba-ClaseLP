@@ -19,7 +19,8 @@ using iText.Layout; // esto es para pdf
 using iText.Layout.Element; // esto es para pdf
 using iText.Layout.Properties; // esto es para pdf
 using iText.Kernel.Font;
-using iText.IO.Font.Constants; // esto es para pdf
+using iText.IO.Font.Constants;
+using DocumentFormat.OpenXml.Spreadsheet; // esto es para pdf
 
 namespace Presentacion
 {
@@ -147,7 +148,102 @@ namespace Presentacion
 
         private void btnPDF_Click(object sender, EventArgs e)
         {
+            if (dgv.Rows.Count == 0)
+            {
+                MessageBox.Show("No hay datos para exportar.");
+                return;
+            }
+
+            // aca vamos a definir el nombre de la ubicacion de descarga del archivo
+            using var sfd = new SaveFileDialog();
+            sfd.Filter = "PDF(*.pdf)|*.pdf";
+            sfd.FileName = $"ReportePDF_{DateTime.Now:yyyyMMdd_HHmm}.pdf";
+
+            if (sfd.ShowDialog() == DialogResult.OK) return;
+
+            // crear el PDF 
+
+            var writer = new PdfWriter(sfd.FileName);
+            var pdf = new PdfDocument(writer);
+            var document = new Document(pdf);
+            // fuentes 
+            var fontNormal = PdfFontFactory.CreateFont(StandardFonts.HELVETICA);
+            var fontBold = PdfFontFactory.CreateFont(StandardFonts.HELVETICA_BOLD);
+
+            // formato del titulo
+            document.Add(new Paragraph("REPORTE DE EMPLEADOS DE LAS EMPRESA PALOMINO SAC")
+                .SetFont(fontBold)
+                .SetFontSize(17)
+                .SetTextAlignment(TextAlignment.CENTER));
+
+            // datos generales del reporte
+
+            document.Add(new Paragraph($"Usuario: {_usuario}")
+                .SetFont(fontNormal));
+
+            document.Add(new Paragraph($"Fecha: {DateTime.Now:dd/MM/yyyy}")
+                .SetFont(fontNormal));
+
+
+            document.Add(new Paragraph(" ")); // espacio 
+
+
+            // aca insertamos la tabla
+             var table = new Table(dgv.Columns.Count);
+
+            // aca voy establecer el encabezado de la tabla
+
+            foreach(DataGridViewColumn col in dgv.Columns)
+            {
+                table.AddHeaderCell(
+                    new Cell().Add(
+                        new Paragraph(col.HeaderText)
+                        .SetFont(fontBold)));
+            }
+
+            int totalRegistros = 0;
+
+            // aca traera las filas
+            foreach (DataGridViewRow row in dgv.Rows)
+            {
+                if (row.IsNewRow) continue;
+                foreach (DataGridViewCell cell in row.Cells)
+                { 
+                    table.AddCell(
+                        new Cell().Add(
+                        new Paragraph(cell.Value?.ToString() ?? "")
+                        .SetFont(fontNormal)));
+
+                }
+                totalRegistros++;
+            
+            }
+
+            document.Add(table);
+
+
+            // total 
+            document.Add(new Paragraph(""));
+            document.Add(new Paragraph($"TOTAL DE REGISTROS: {totalRegistros}"))
+                .SetFont(fontBold); 
+
+            document.Close();
+
+            MessageBox.Show("PDF generado correctamente.");
+
+
+
+
+
+
+
+
+
+
+
+
 
         }
     }
+
 }

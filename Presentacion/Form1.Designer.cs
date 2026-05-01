@@ -53,6 +53,7 @@
             cboTipoContrato = new ComboBox();
             btnMonitorAsync = new Button();
             btnConsultas = new Button();
+            btnReportes = new Button();
             ((System.ComponentModel.ISupportInitialize)dvgEmpleados).BeginInit();
             SuspendLayout();
             // 
@@ -267,11 +268,22 @@
             btnConsultas.UseVisualStyleBackColor = true;
             btnConsultas.Click += btnConsultas_Click;
             // 
+            // btnReportes
+            // 
+            btnReportes.Location = new Point(645, 278);
+            btnReportes.Name = "btnReportes";
+            btnReportes.Size = new Size(139, 23);
+            btnReportes.TabIndex = 23;
+            btnReportes.Text = "Reportes";
+            btnReportes.UseVisualStyleBackColor = true;
+            btnReportes.Click += btnReportes_Click;
+            // 
             // frmPrincipal
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(820, 390);
+            Controls.Add(btnReportes);
             Controls.Add(btnConsultas);
             Controls.Add(btnMonitorAsync);
             Controls.Add(cboTipoContrato);
@@ -330,5 +342,6 @@
         private ComboBox cboTipoContrato;
         private Button btnMonitorAsync;
         private Button btnConsultas;
+        private Button btnReportes;
     }
 }
